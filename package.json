@@ -1,5 +1,5 @@
 {
-  "name": "grunt-jscs",
+  "name": "grunt-contrib-jscs",
   "description": "A grunt task for running js-codesniffer validator",
   "version": "0.1.0",
   "homepage": "https://github.com/dsheiko/grunt-jscs",
