@@ -1,7 +1,7 @@
 {
   "name": "grunt-contrib-jscs",
   "description": "A grunt task for running js-codesniffer validator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/dsheiko/grunt-jscs",
   "author": {
     "name": "Dmitry Sheiko",
@@ -28,10 +28,13 @@
   "scripts": {
     "test": "grunt test"
   },
+  "dependencies": {
+    "jscodesniffer": ">1.0.0",
+    "grunt-lib-contrib": "~0.6.1"
+  },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.1.1",
-    "grunt": "~0.4.1",
-    "jscodesniffer": ">1.0.0"
+    "grunt": "~0.4.1"
   },
   "peerDependencies": {
     "grunt": "~0.4.1"
