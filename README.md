@@ -37,7 +37,7 @@ grunt.initConfig({
 
 ### Options
 
-#### options.report
+#### options.standard
 Type: `String`
 Default Idiomatic
 
