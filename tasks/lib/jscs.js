@@ -16,7 +16,7 @@ exports.init = function( grunt ) {
     var exports = {},
         defaults = {
             // Default options
-            bin: 'node ./node_modules/jscodesniffer/jscs',
+            bin: 'node ./node_modules/grunt-contrib-jscs/node_modules/jscodesniffer/jscs.js',
             standard: false,
             report: false,
             reportFile: false
@@ -59,7 +59,7 @@ exports.init = function( grunt ) {
 
         var where = runner.data.join(" ");
         config = runner.options( defaults );
-        
+
         cmd = buildCommand() + ' ' + where;
 
         grunt.log.writeln( 'Starting jscs on ' + where );
