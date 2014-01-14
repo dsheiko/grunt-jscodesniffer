@@ -1,91 +1,82 @@
 /*
- * grunt-jscs
- * https://github.com/dsheiko/grunt-jscs
- *
- * Copyright (c) 2013 Dmitry Sheiko
- * Licensed under the MIT license.
- * @jscs standard:Jquery
- */
-'use strict';
+* grunt-jscs
+* https://github.com/dsheiko/grunt-jscs
+*
+* Copyright (c) 2013 Dmitry Sheiko
+* Licensed under the MIT license.
+* @jscs standard:Jquery
+*/
+"use strict";
 
 // External libs.
-var path = require('path');
-var exec = require('child_process').exec;
+var path = require( "path" );
+var exec = require( "child_process" ).exec;
 
 exports.init = function( grunt ) {
-    var exports = {},
-        defaults = {
-            // Default options
-            bin: 'node ./node_modules/grunt-contrib-jscs/node_modules/jscodesniffer/jscs.js',
-            standard: false,
-            report: false,
-            reportFile: false
-        },
-        cmd = null,
-        done = null,
-        config = {};
+	var exports = {},
+		defaults = {
+			// Default options
+			standard: false,
+			report: false,
+			reportFile: false
+		},
+		argv = [ "node", "jscs" ],
+		done = null,
+		config = {},
+		/**
+		* Builds phpunit command
+		* @param {string} fileDest
+		* @return string
+		*/
+		buildArgv = function( fileDest ) {
 
-    /**
-     * Builds phpunit command
-     *
-     * @return string
-     */
-    var buildCommand = function() {
+			if ( grunt.option( "standard" ) || config.standard ) {
+				// Define the code sniffer standard.
+				argv.push( " --standard=" + config.standard );
+			}
 
-        var cmd = path.normalize( config.bin );
+			if ( grunt.option( "report" ) || config.report ) {
+				argv.push( " --report=" + config.report );
+			}
 
-        if ( grunt.option('standard') || config.standard ) {
-            // Define the code sniffer standard.
-            cmd += ' --standard=' + config.standard;
-        }
+			if ( grunt.option( "report-file" ) || config.reportFile ) {
+				argv.push( " --report-file=" + config.reportFile );
+			}
 
-        if ( grunt.option('report') || config.report ) {
-            cmd += ' --report=' + config.report;
-        }
+			argv.push( fileDest );
 
-        if ( grunt.option('report-file') || config.reportFile ) {
-            cmd += ' --report-file=' + config.reportFile;
-        }
+			return argv;
+		};
 
-        return cmd;
-    };
+	/**
+	* Setup task before running it
+	*
+	* @param Object runner
+	*/
+	exports.setup = function( runner ) {
 
-    /**
-     * Setup task before running it
-     *
-     * @param Object runner
-     */
-    exports.setup = function( runner ) {
+		var cmd,
+				where = runner.data.join( " " );
+		config = runner.options( defaults );
 
-        var where = runner.data.join(" ");
-        config = runner.options( defaults );
+		buildArgv( where );
 
-        cmd = buildCommand() + ' ' + where;
+		cmd = argv.join( " " );
 
-        grunt.log.writeln( 'Starting jscs on ' + where );
-        grunt.verbose.writeln( 'Exec: ' + cmd );
+		grunt.log.writeln( "Starting jscs on " + where );
+		grunt.verbose.writeln( "Exec: " + cmd );
 
-        done = runner.async();
-    };
+		done = runner.async();
+	};
 
-    /**
-     * Runs phpunit command with options
-     *
-     */
-    exports.run = function() {
+	/**
+	* Runs phpunit command with options
+	*
+	*/
+	exports.run = function() {
+	var jscodesniffer = require( "jscodesniffer" );
+	jscodesniffer( argv, process.cwd() );
+	};
 
-        exec( cmd, function( err, stdout, stderr ) {
-
-            if ( stdout ) {
-                grunt.log.write( stdout );
-            }
-
-            if ( err ) {
-                grunt.fatal( err );
-            }
-            done();
-        });
-    };
-
-    return exports;
+	return exports;
 };
