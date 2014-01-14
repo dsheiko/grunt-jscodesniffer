@@ -14,7 +14,7 @@ npm install grunt-jscs --save-dev
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
 ```js
-grunt.loadNpmTasks('grunt-jscs');
+grunt.loadNpmTasks( "grunt-contrib-jscs" );
 ```
 
 ## The "jscs" task
