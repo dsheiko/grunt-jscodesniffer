@@ -21,7 +21,6 @@ exports.init = function( grunt ) {
 			reportFile: false
 		},
 		argv = [ "node", "jscs" ],
-		done = null,
 		config = {},
 		/**
 		* Builds phpunit command
@@ -65,8 +64,6 @@ exports.init = function( grunt ) {
 
 		grunt.log.writeln( "Starting jscs on " + where );
 		grunt.verbose.writeln( "Exec: " + cmd );
-
-		done = runner.async();
 	};
 
 	/**
@@ -74,8 +71,8 @@ exports.init = function( grunt ) {
 	*
 	*/
 	exports.run = function() {
-	var jscodesniffer = require( "jscodesniffer" );
-	jscodesniffer( argv, process.cwd() );
+		var jscodesniffer = require( "jscodesniffer" );
+		jscodesniffer( argv, process.cwd() );
 	};
 
 	return exports;
