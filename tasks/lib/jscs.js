@@ -29,16 +29,20 @@ exports.init = function( grunt ) {
 		*/
 		buildArgv = function( fileDest ) {
 
-			if ( grunt.option( "standard" ) || config.standard ) {
+			if ( config.standard ) {
 				// Define the code sniffer standard.
 				argv.push( " --standard=" + config.standard );
 			}
 
-			if ( grunt.option( "report" ) || config.report ) {
+			if ( config.reportFull ) {
+				argv.push( " --report-full" );
+			}
+
+			if ( config.report ) {
 				argv.push( " --report=" + config.report );
 			}
 
-			if ( grunt.option( "report-file" ) || config.reportFile ) {
+			if ( config.reportFile ) {
 				argv.push( " --report-file=" + config.reportFile );
 			}
 
@@ -67,7 +71,6 @@ exports.init = function( grunt ) {
 
 		buildArgv( where );
 		cmd = argv.join( " " );
-
 		grunt.log.writeln( "Starting jscs on " + where );
 		grunt.verbose.writeln( "Exec: " + cmd );
 	};

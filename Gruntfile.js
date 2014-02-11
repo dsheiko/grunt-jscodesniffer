@@ -23,7 +23,8 @@ module.exports = function(grunt) {
     jscs: {
 			all: {
 				options: {
-					"standard": "Jquery"
+					standard: "Jquery",
+					reportFull: true
 				},
 				files: {
 					src: [ "tasks" ]
