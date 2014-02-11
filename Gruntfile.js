@@ -21,10 +21,14 @@ module.exports = function(grunt) {
     },
     // Configuration to be run (and then tested).
     jscs: {
-        options: {
-            "standard": "Jquery"
-        },
-        all: ["tasks"]
+			all: {
+				options: {
+					"standard": "Jquery"
+				},
+				files: {
+					src: [ "tasks" ]
+				}
+			}
     }
   });
 

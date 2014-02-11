@@ -24,14 +24,16 @@ In your project's Gruntfile, add a section named `jscs` to the data object passe
 
 ```js
 grunt.initConfig({
-  jscs: {
-    options: {
-      // Task-specific options go here.
-    },
-    all: {
-       [""] // Target-specific file/directory goes here.
-    },
-  },
+	jscs: {
+		all: {
+			options: {
+				// Task-specific options go here.
+			},
+			files: {
+				src: [ "" ] // Target-specific file/directory goes here.
+			}
+		}
+	}
 })
 ```
 
@@ -62,12 +64,16 @@ Default 'Undefined'
 
 ```js
 grunt.initConfig({
-  jscs: {
-    options: {
-        "standard": "Jquery"
-    },
-    all: [ "./sources" ],
-  }
+   jscs: {
+			all: {
+				options: {
+					"standard": "Jquery"
+				},
+				files: {
+					src: [ "tasks" ]
+				}
+			}
+    }
 });
 ```
 
