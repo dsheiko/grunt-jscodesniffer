@@ -81,3 +81,4 @@ grunt.initConfig({
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/7ddc139636e39e227c9eb4b80a2d7743 "githalytics.com")](http://githalytics.com/dsheiko/grunt-jscs)
