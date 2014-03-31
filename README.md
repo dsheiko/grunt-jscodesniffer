@@ -30,7 +30,7 @@ grunt.initConfig({
 				// Task-specific options go here.
 			},
 			files: {
-				src: [ "" ] // Target-specific file/directory goes here.
+				src: [ "dir", "file", "dir" ] // Target-specific file/directory goes here.
 			}
 		}
 	}

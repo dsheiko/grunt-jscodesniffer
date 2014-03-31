@@ -27,7 +27,7 @@ module.exports = function(grunt) {
 					reportFull: true
 				},
 				files: {
-					src: [ "tasks" ]
+					src: [ "tasks", "test" ]
 				}
 			}
     }

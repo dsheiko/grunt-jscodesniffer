@@ -20,15 +20,14 @@ exports.init = function( grunt ) {
 			report: false,
 			reportFile: false
 		},
-		argv = [ "node", "jscs" ],
 		config = {},
 		/**
 		* Builds phpunit command
 		* @param {string} fileDest
-		* @return string
+		* @return string argv
 		*/
 		buildArgv = function( fileDest ) {
-
+			var argv = [ "node", "jscs" ];
 			if ( config.standard ) {
 				// Define the code sniffer standard.
 				argv.push( " --standard=" + config.standard );
@@ -49,39 +48,42 @@ exports.init = function( grunt ) {
 			argv.push( fileDest );
 
 			return argv;
+		},
+
+		/**
+		* Setup task before running it
+		* @link http://gruntjs.com/configuring-tasks#files-object-format
+		* @param {Object} runner
+		*/
+		setup = function( runner ) {
+			var where;
+
+				// e.g. { files: { src: [ 'tasks' ] }, options: { standard: 'Jquery' } }
+				if ( runner.data.files && runner.data.files.src )  {
+					where = runner.data.files.src;
+					config = runner.data.options;
+				} else {
+					where = runner.data;
+					config = runner.options( defaults );
+				}
+			return where;
+
 		};
 
 	/**
-	* Setup task before running it
-	* @link http://gruntjs.com/configuring-tasks#files-object-format
-	* @param Object runner
-	*/
-	exports.setup = function( runner ) {
-
-		var cmd, where;
-
-			// e.g. { files: { src: [ 'tasks' ] }, options: { standard: 'Jquery' } }
-			if ( runner.data.files && runner.data.files.src )  {
-				where = runner.data.files.src.join( " " );
-				config = runner.data.options;
-			} else {
-				where = runner.data.join( " " );
-				config = runner.options( defaults );
-			}
-
-		buildArgv( where );
-		cmd = argv.join( " " );
-		grunt.log.writeln( "Starting jscs on " + where );
-		grunt.verbose.writeln( "Exec: " + cmd );
-	};
-
-	/**
 	* Runs phpunit command with options
-	*
+	* @param {Object} runner
 	*/
-	exports.run = function() {
-		var jscodesniffer = require( "jscodesniffer" );
-		jscodesniffer( argv, process.cwd() );
+	exports.run = function( runner ) {
+		var jscodesniffer = require( "jscodesniffer" ),
+				where = setup( runner );
+		where.forEach(function( dir ){
+			var argv = buildArgv( dir ),
+					cmd = argv.join( " " );
+			grunt.log.writeln( "Starting jscs on " + dir );
+			grunt.verbose.writeln( "Exec: " + cmd );
+			jscodesniffer( argv, process.cwd() );
+		});
 	};
 
 	return exports;
