@@ -23,10 +23,10 @@ exports.init = function( grunt ) {
 		config = {},
 		/**
 		* Builds phpunit command
-		* @param {string} fileDest
+		* @param {string[]} fileDestArr
 		* @return string argv
 		*/
-		buildArgv = function( fileDest ) {
+		buildArgv = function( fileDestArr ) {
 			var argv = [ "node", "jscs" ];
 			if ( config.standard ) {
 				// Define the code sniffer standard.
@@ -45,9 +45,7 @@ exports.init = function( grunt ) {
 				argv.push( " --report-file=" + config.reportFile );
 			}
 
-			argv.push( fileDest );
-
-			return argv;
+			return argv.concat( fileDestArr );
 		},
 
 		/**
@@ -63,7 +61,7 @@ exports.init = function( grunt ) {
 					where = runner.data.files.src;
 					config = runner.data.options;
 				} else {
-					where = runner.data;
+					where = [ runner.data ];
 					config = runner.options( defaults );
 				}
 			return where;
@@ -76,14 +74,12 @@ exports.init = function( grunt ) {
 	*/
 	exports.run = function( runner ) {
 		var jscodesniffer = require( "jscodesniffer" ),
-				where = setup( runner );
-		where.forEach(function( dir ){
-			var argv = buildArgv( dir ),
-					cmd = argv.join( " " );
-			grunt.log.writeln( "Starting jscs on " + dir );
-			grunt.verbose.writeln( "Exec: " + cmd );
-			jscodesniffer( argv, process.cwd() );
-		});
+				where = setup( runner ),
+				argv = buildArgv( where ),
+				cmd = argv.join( " " );
+		grunt.log.writeln( "Starting jscs on " + where );
+		grunt.verbose.writeln( "Exec: " + cmd );
+		jscodesniffer( argv, process.cwd() );
 	};
 
 	return exports;
