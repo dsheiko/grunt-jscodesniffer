@@ -1,4 +1,4 @@
-# grunt-jscs
+# grunt-contrib-jscs
 
 > A grunt task for running js-codesniffer validator
 
@@ -8,7 +8,7 @@ This plugin requires Grunt `~0.4.1`
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
 ```shell
-npm install grunt-jscs --save-dev
+npm install grunt-contrib-jscs --save-dev
 ```
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
@@ -81,4 +81,4 @@ grunt.initConfig({
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/7ddc139636e39e227c9eb4b80a2d7743 "githalytics.com")](http://githalytics.com/dsheiko/grunt-jscs)
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/7ddc139636e39e227c9eb4b80a2d7743 "githalytics.com")](http://githalytics.com/dsheiko/grunt-contrib-jscs)
