@@ -45,18 +45,26 @@ Default Idiomatic
 
 - apply specified standard (Idiomatic, Jquery)
 
+#### options.reportFull
+Type: `Boolean`
+Default 'false'
+
+full report with source codes
+
+
+#### options.reportFile
+Type: `String`
+Default 'Undefined'
+
+write the report to the specified file path
+
+
 #### options.report
 Type: `String`
 Default 'Undefined'
 
 xml for printing an XML report
 checkstyle for printing Jenkins-friendly checkstyle report
-
-#### options.report-file
-Type: `String`
-Default 'Undefined'
-
-- write the report to the specified file path
 
 ### Usage Examples
 
