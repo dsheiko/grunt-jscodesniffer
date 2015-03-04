@@ -1,8 +1,8 @@
 {
-  "name": "grunt-jscs",
+  "name": "grunt-jscodesniffer",
   "description": "A grunt task for running js-codesniffer validator",
-  "version": "0.1.9",
-  "homepage": "https://github.com/dsheiko/grunt-jscs",
+  "version": "0.1.10",
+  "homepage": "https://github.com/dsheiko/grunt-jscodesniffer",
   "author": {
     "name": "Dmitry Sheiko",
     "email": "web.sbelarus@gmail.com",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/dsheiko/grunt-jscs.git"
+    "url": "git://github.com/dsheiko/grunt-jscodesniffer.git"
   },
   "bugs": {
-    "url": "https://github.com/dsheiko/grunt-jscs/issues"
+    "url": "https://github.com/dsheiko/grunt-jscodesniffer/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/dsheiko/grunt-jscs/blob/master/LICENSE-MIT"
+      "url": "https://github.com/dsheiko/grunt-jscodesniffer/blob/master/LICENSE-MIT"
     }
   ],
   "main": "Gruntfile.js",

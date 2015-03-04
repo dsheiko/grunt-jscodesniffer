@@ -1,6 +1,6 @@
 /*
- * grunt-jscs
- * https://github.com/dsheiko/grunt-jscs
+ * grunt-jscodesniffer
+ * https://github.com/dsheiko/grunt-jscodesniffer
  *
  * Copyright (c) 2013 Dmitry Sheiko
  * Licensed under the MIT license.
