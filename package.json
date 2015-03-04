@@ -1,7 +1,7 @@
 {
-  "name": "grunt-contrib-jscs",
+  "name": "grunt-jscs",
   "description": "A grunt task for running js-codesniffer validator",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "homepage": "https://github.com/dsheiko/grunt-jscs",
   "author": {
     "name": "Dmitry Sheiko",
