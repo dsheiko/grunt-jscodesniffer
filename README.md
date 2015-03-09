@@ -1,6 +1,8 @@
 # grunt-jscodesniffer
 
-> A grunt task for running js-codesniffer validator
+A grunt task for running jscodesniffer validator
+
+> Note: This used to be called 'grunt-contrib-jscs' in the npm registry, but as of version 0.1.10 it has taken over the 'grunt-jscodesniffer' name.
 
 ## Getting Started
 This plugin requires Grunt `~0.4.1`
@@ -89,4 +91,4 @@ grunt.initConfig({
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/7ddc139636e39e227c9eb4b80a2d7743 "githalytics.com")](http://githalytics.com/dsheiko/grunt-jscodesniffer)
+[![Analytics](https://ga-beacon.appspot.com/UA-1150677-13/dsheiko/grunt-jscodesniffer)](http://githalytics.com/dsheiko/grunt-jscodesniffer)
