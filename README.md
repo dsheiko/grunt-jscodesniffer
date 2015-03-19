@@ -1,5 +1,7 @@
 # grunt-jscodesniffer
 
+[![NPM](https://nodei.co/npm/grunt-jscodesniffer.png)](https://nodei.co/npm/grunt-jscodesniffer/)
+
 A grunt task for running jscodesniffer validator
 
 > Note: This used to be called 'grunt-contrib-jscs' in the npm registry, but as of version 0.1.10 it has taken over the 'grunt-jscodesniffer' name.
