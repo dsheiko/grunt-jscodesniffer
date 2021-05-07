@@ -1,5 +1,9 @@
 # grunt-jscodesniffer
 
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
+> WARNING - THIS PROJECT IS NO LONGER MAINTAINED!!!
+
 [![NPM](https://nodei.co/npm/grunt-jscodesniffer.png)](https://nodei.co/npm/grunt-jscodesniffer/)
 
 A grunt task for running jscodesniffer validator
